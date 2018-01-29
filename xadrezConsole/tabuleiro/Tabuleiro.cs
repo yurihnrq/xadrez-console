@@ -10,14 +10,19 @@ namespace tabuleiro {
         public int colunas { get; set; }
         private Peca[,] pecas;
 
-        public Tabuleiro(int linhas, int colunas) {
-            this.linhas = linhas;
-            this.colunas = colunas;
-            pecas = new Peca[linhas, colunas];
+        public Tabuleiro(int linha, int coluna) {
+            this.linhas = linha;
+            this.colunas = coluna;
+            pecas = new Peca[linha, coluna];
         }
 
-        public Peca peca(int linhas, int colunas) {
-            return pecas[linhas, colunas];
+        public Peca peca(int linha, int coluna) {
+            return pecas[linha, coluna];
+        }
+
+        public void colocarPeca(Peca P, Posicao pos) {
+            pecas[pos.linha, pos.coluna] = P;
+            P.posicao = pos;
         }
 
     }

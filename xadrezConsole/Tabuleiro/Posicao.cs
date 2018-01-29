@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Tabuleiro {
+namespace tabuleiro {
     class Posicao {
 
-        public int linha { get; private set; }
-        public int coluna { get; private set; }
+        public int linha { get; set; }
+        public int coluna { get; set; }
 
         public Posicao(int linha, int coluna) {
             this.linha = linha;

@@ -6,13 +6,13 @@ using System.Text;
 namespace tabuleiro {
     class Tabuleiro {
 
-        public int linhas { get; set; }
-        public int colunas { get; set; }
+        public int linha { get; set; }
+        public int coluna { get; set; }
         private Peca[,] pecas;
 
         public Tabuleiro(int linha, int coluna) {
-            this.linhas = linha;
-            this.colunas = coluna;
+            this.linha = linha;
+            this.coluna = coluna;
             pecas = new Peca[linha, coluna];
         }
 
@@ -20,9 +20,34 @@ namespace tabuleiro {
             return pecas[linha, coluna];
         }
 
+        public Peca peca(Posicao pos) {
+            return pecas[pos.linha, pos.coluna];
+        }
+
+        public bool existePeca(Posicao pos) {
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }
+
         public void colocarPeca(Peca P, Posicao pos) {
+            if (existePeca(pos)) {
+                throw new TabuleiroException("Já existe uma peça nessa posição!");
+            }
             pecas[pos.linha, pos.coluna] = P;
             P.posicao = pos;
+        }
+
+        public bool posicaoValida(Posicao pos) {
+            if (pos.linha < 0 || pos.linha >= linha || pos.coluna < 0 || pos.coluna >= coluna) {
+                return false;
+            }
+            return true;
+        }
+
+        public void validarPosicao(Posicao pos) {
+            if (!posicaoValida(pos)) {
+                throw new TabuleiroException("Posição inválida!");
+            }
         }
 
     }

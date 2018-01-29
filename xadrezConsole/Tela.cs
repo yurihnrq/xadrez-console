@@ -6,8 +6,8 @@ namespace xadrezConsole {
 
         public static void imprimirTabuleiro(Tabuleiro tabuleiro) {
 
-            for (int i = 0; i < tabuleiro.linhas; i++) {
-                for (int j = 0; j < tabuleiro.colunas; j++) {
+            for (int i = 0; i < tabuleiro.linha; i++) {
+                for (int j = 0; j < tabuleiro.coluna; j++) {
 
                     if (tabuleiro.peca(i, j) == null) {
                         Console.Write("- ");

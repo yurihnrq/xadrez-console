@@ -5,6 +5,9 @@ using xadrez;
 namespace xadrezConsole {
     class Program {
         static void Main(string[] args) {
+
+            Console.Title = "Jogo de Xadrez";
+
             try {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
@@ -12,10 +15,7 @@ namespace xadrezConsole {
 
                     try {
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                        Tela.imprimirPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");

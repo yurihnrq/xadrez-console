@@ -83,7 +83,7 @@ namespace xadrezConsole {
 
         public static PosicaoXadrez lerPosicaoXadrez() {
             string s = Console.ReadLine();
-            if(s.Length >= 3 || s.Length == 0) {
+            if(s.Length >= 3 || s.Length == 1 || s.Length == 0) {
                 throw new TabuleiroException("Por favor, insira uma posição válida.");
             } else if (s[0] != 'a' && s[0] != 'b' && s[0] != 'c' && s[0] != 'd' && s[0] != 'e' && s[0] != 'f' && s[0] != 'g' && s[0] != 'h') {
                 throw new TabuleiroException("Por favor, insira uma posição válida.");
